@@ -1,7 +1,10 @@
 <?php
 
+namespace OpenClassrooms\Blog\Model;
 
-class CommentManager
+require_once("model/Manager.php");
+
+class CommentManager extends Manager
 {
     public function getComments($postId)
     {
@@ -21,9 +24,4 @@ class CommentManager
         return $affectedLines;
     }
 
-    private function dbConnect()
-    {
-        $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
-        return $db;
-    }
 }
