@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="style.css" rel="stylesheet" />
-</head>
+<?php $title = htmlspecialchars($post['title']); ?>
 
-<body>
+<?php ob_start(); ?>
 <h1>Mon super blog !</h1>
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
@@ -32,5 +26,6 @@ while ($comment = $comments->fetch())
     <?php
 }
 ?>
-</body>
-</html>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>
